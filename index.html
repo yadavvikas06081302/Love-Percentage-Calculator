@@ -3,335 +3,53 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Couple Love Percentage ❤️</title>
-
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: Arial, sans-serif;
-        }
-
-        body {
-            min-height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            overflow: hidden;
-            background: linear-gradient(135deg, #ff758c, #ff7eb3);
-        }
-
-        .heart {
-            position: fixed;
-            color: rgba(255,255,255,0.6);
-            font-size: 25px;
-            animation: float 6s linear infinite;
-            bottom: -50px;
-        }
-
-        @keyframes float {
-            0% {
-                transform: translateY(0) scale(1);
-                opacity: 0;
-            }
-
-            20% {
-                opacity: 1;
-            }
-
-            100% {
-                transform: translateY(-110vh) scale(1.5);
-                opacity: 0;
-            }
-        }
-
-        .container {
-            width: 90%;
-            max-width: 420px;
-            background: rgba(255,255,255,0.95);
-            padding: 30px 25px;
-            border-radius: 25px;
-            text-align: center;
-            box-shadow: 0 15px 40px rgba(0,0,0,0.25);
-            position: relative;
-            z-index: 2;
-        }
-
-        .title {
-            font-size: 30px;
-            color: #ff2f68;
-            margin-bottom: 8px;
-        }
-
-        .subtitle {
-            color: #666;
-            margin-bottom: 25px;
-        }
-
-        .couple {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-            font-size: 55px;
-            margin-bottom: 20px;
-        }
-
-        .input-box {
-            margin: 15px 0;
-        }
-
-        input {
-            width: 100%;
-            padding: 14px;
-            border: 2px solid #ff8eaa;
-            border-radius: 12px;
-            outline: none;
-            font-size: 16px;
-            text-align: center;
-        }
-
-        input:focus {
-            border-color: #ff2f68;
-        }
-
-        button {
-            width: 100%;
-            padding: 15px;
-            border: none;
-            border-radius: 12px;
-            background: linear-gradient(135deg, #ff2f68, #ff4f91);
-            color: white;
-            font-size: 18px;
-            font-weight: bold;
-            cursor: pointer;
-            margin-top: 10px;
-        }
-
-        button:hover {
-            transform: scale(1.02);
-        }
-
-        #result {
-            display: none;
-            margin-top: 25px;
-        }
-
-        .names {
-            font-size: 20px;
-            font-weight: bold;
-            color: #ff2f68;
-            margin-bottom: 10px;
-        }
-
-        .percentage {
-            font-size: 65px;
-            font-weight: bold;
-            color: #ff174f;
-            margin: 10px;
-        }
-
-        .bar {
-            width: 100%;
-            height: 18px;
-            background: #eee;
-            border-radius: 20px;
-            overflow: hidden;
-            margin: 15px 0;
-        }
-
-        .progress {
-            height: 100%;
-            width: 0%;
-            background: linear-gradient(90deg, #ff174f, #ff7eb3);
-            border-radius: 20px;
-            transition: width 2s ease;
-        }
-
-        .message {
-            font-size: 18px;
-            color: #555;
-            margin-top: 15px;
-        }
-
-        .love-heart {
-            font-size: 45px;
-            animation: beat 1s infinite;
-        }
-
-        @keyframes beat {
-            0%, 100% {
-                transform: scale(1);
-            }
-
-            50% {
-                transform: scale(1.25);
-            }
-        }
-
-        .footer {
-            margin-top: 20px;
-            color: #999;
-            font-size: 12px;
-        }
-    </style>
+    <title>Love Percentage Calculator</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-    <!-- Floating Hearts -->
-    <div class="heart" style="left:10%; animation-delay:0s;">❤️</div>
-    <div class="heart" style="left:25%; animation-delay:2s;">💕</div>
-    <div class="heart" style="left:45%; animation-delay:4s;">❤️</div>
-    <div class="heart" style="left:65%; animation-delay:1s;">💗</div>
-    <div class="heart" style="left:85%; animation-delay:3s;">💕</div>
+<div class="container">
+    <div class="heart">❤️</div>
 
-    <div class="container">
+    <h1>Love Percentage Calculator</h1>
+    <p class="subtitle">Check love percentage in both directions</p>
 
-        <h1 class="title">Love Calculator ❤️</h1>
-
-        <p class="subtitle">
-            Check the love percentage between two couples
-        </p>
-
-        <div class="couple">
-            👦 ❤️ 👧
-        </div>
-
-        <div class="input-box">
-            <input
-                type="text"
-                id="boyName"
-                placeholder="Enter Boy Name"
-            >
-        </div>
-
-        <div class="input-box">
-            <input
-                type="text"
-                id="girlName"
-                placeholder="Enter Girl Name"
-            >
-        </div>
-
-        <button onclick="calculateLove()">
-            💕 Calculate Love %
-        </button>
-
-        <div id="result">
-
-            <div class="love-heart">❤️</div>
-
-            <div class="names" id="coupleNames"></div>
-
-            <div class="percentage">
-                <span id="percentage">0</span>%
-            </div>
-
-            <div class="bar">
-                <div class="progress" id="progress"></div>
-            </div>
-
-            <div class="message" id="message"></div>
-
-        </div>
-
-        <div class="footer">
-            Made with ❤️ for couples
-        </div>
-
+    <div class="input-box">
+        <label>👦 Boy Name</label>
+        <input type="text" id="boyName" placeholder="Enter boy name">
     </div>
 
-    <script>
+    <div class="input-box">
+        <label>👧 Girl Name</label>
+        <input type="text" id="girlName" placeholder="Enter girl name">
+    </div>
 
-        function calculateLove() {
+    <div class="buttons">
+        <button onclick="calculateLove('boyGirl')">
+            👦 Boy → Girl 👧
+        </button>
 
-            let boy = document.getElementById("boyName").value.trim();
-            let girl = document.getElementById("girlName").value.trim();
+        <button onclick="calculateLove('girlBoy')">
+            👧 Girl → Boy 👦
+        </button>
+    </div>
 
-            if (boy === "" || girl === "") {
-                alert("Please enter both Boy and Girl names ❤️");
-                return;
-            }
+    <div id="result" class="result hidden">
+        <div id="direction"></div>
+        <div id="names"></div>
+        <div id="percentage">0%</div>
+        <div id="message"></div>
+    </div>
 
-            /*
-                Same two names will always give
-                the same percentage.
-            */
+    <button class="both-btn" onclick="calculateBoth()">
+        💕 Check Both
+    </button>
 
-            let combined =
-                boy.toLowerCase() +
-                "❤️" +
-                girl.toLowerCase();
+    <div id="bothResults" class="both-results hidden"></div>
+</div>
 
-            let total = 0;
-
-            for (let i = 0; i < combined.length; i++) {
-                total += combined.charCodeAt(i) * (i + 1);
-            }
-
-            let lovePercentage = (total % 101);
-
-            // Minimum percentage
-            if (lovePercentage < 20) {
-                lovePercentage += 20;
-            }
-
-            document.getElementById("result").style.display = "block";
-
-            document.getElementById("coupleNames").innerHTML =
-                boy + " ❤️ " + girl;
-
-            let percentageElement =
-                document.getElementById("percentage");
-
-            let progress =
-                document.getElementById("progress");
-
-            percentageElement.innerText = "0";
-            progress.style.width = "0%";
-
-            let current = 0;
-
-            let animation = setInterval(function () {
-
-                current++;
-
-                percentageElement.innerText = current;
-
-                if (current >= lovePercentage) {
-                    clearInterval(animation);
-                }
-
-            }, 25);
-
-            setTimeout(function () {
-                progress.style.width = lovePercentage + "%";
-            }, 100);
-
-            let message = "";
-
-            if (lovePercentage >= 90) {
-                message = "💖 Perfect Couple! Made for each other!";
-            }
-            else if (lovePercentage >= 75) {
-                message = "💕 Amazing Love! Your bond is very strong!";
-            }
-            else if (lovePercentage >= 60) {
-                message = "❤️ Beautiful Couple! Keep loving each other!";
-            }
-            else if (lovePercentage >= 40) {
-                message = "💗 There is definitely some chemistry!";
-            }
-            else {
-                message = "😊 Keep building your beautiful connection!";
-            }
-
-            document.getElementById("message").innerText = message;
-        }
-
-    </script>
+<script src="script.js"></script>
 
 </body>
 </html>
