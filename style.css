@@ -1,0 +1,179 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, #ff758c, #ff7eb3);
+    padding: 20px;
+}
+
+.container {
+    width: 100%;
+    max-width: 450px;
+    background: white;
+    padding: 30px 25px;
+    border-radius: 25px;
+    text-align: center;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+}
+
+.heart {
+    font-size: 65px;
+    animation: heartbeat 1.2s infinite;
+}
+
+@keyframes heartbeat {
+    0%, 100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.15);
+    }
+}
+
+h1 {
+    color: #e91e63;
+    font-size: 28px;
+    margin: 10px 0;
+}
+
+.subtitle {
+    color: #777;
+    margin-bottom: 25px;
+}
+
+.input-box {
+    text-align: left;
+    margin-bottom: 18px;
+}
+
+label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 7px;
+    color: #444;
+}
+
+input {
+    width: 100%;
+    padding: 14px;
+    border: 2px solid #eee;
+    border-radius: 12px;
+    font-size: 16px;
+    outline: none;
+}
+
+input:focus {
+    border-color: #e91e63;
+}
+
+.buttons {
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.buttons button,
+.both-btn {
+    border: none;
+    padding: 14px 10px;
+    border-radius: 12px;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.buttons button {
+    flex: 1;
+    background: #e91e63;
+    color: white;
+}
+
+.buttons button:hover {
+    background: #c2185b;
+}
+
+.both-btn {
+    width: 100%;
+    margin-top: 15px;
+    background: #ff4081;
+    color: white;
+}
+
+.result {
+    margin-top: 25px;
+    padding: 20px;
+    border-radius: 18px;
+    background: #fff0f5;
+}
+
+.hidden {
+    display: none;
+}
+
+#direction {
+    font-size: 20px;
+    font-weight: bold;
+    color: #e91e63;
+}
+
+#names {
+    margin-top: 8px;
+    color: #555;
+}
+
+#percentage {
+    font-size: 55px;
+    font-weight: bold;
+    color: #e91e63;
+    margin: 10px 0;
+}
+
+#message {
+    font-weight: bold;
+    color: #555;
+}
+
+.both-results {
+    margin-top: 20px;
+    text-align: left;
+}
+
+.card {
+    padding: 15px;
+    margin-bottom: 10px;
+    border-radius: 12px;
+    background: #fff0f5;
+}
+
+.card strong {
+    color: #e91e63;
+}
+
+.card .percent {
+    font-size: 28px;
+    font-weight: bold;
+    color: #e91e63;
+}
+
+@media (max-width: 400px) {
+    .container {
+        padding: 25px 18px;
+    }
+
+    h1 {
+        font-size: 24px;
+    }
+
+    .buttons {
+        flex-direction: column;
+    }
+}
